@@ -1,0 +1,43 @@
+import random
+TotalJoueur, TotalBanque = 0,0
+continuer = True
+while continuer :
+    n=eval(input("Combien de dés ?\n 0 pour quitter."))
+    if n > 0 :
+        d = 1
+        print ("Lancers du joueur........")
+        while d <= n :
+            res=random.randint(1,6)
+            print ("Dé numéro", d, ":", res)
+            TotalJoueur = TotalJoueur + res
+            d = d + 1
+        print ("Total du Joueur", TotalJoueur)
+        print ("Au tour de la banque........")
+        d = 1
+        while d <= n :
+            res=random.randint(1,6)
+            print ("Dé numéro", d, ":", res)
+            TotalBanque = TotalBanque + res
+            d = d + 1
+        print ("Total de la banque", TotalBanque)
+        if TotalBanque > 21 or TotalJoueur > 21 :
+            continuer = False
+        else :
+            continuer = False
+# On regarde les résultats :
+if TotalJoueur > 21 :
+    if TotalBanque > 21 :
+        print ("Match nul, vous avez dépassé tous les deux")
+    else :
+        print ("Vous avez perdu, vous avez dépassé 21.")
+else :
+    if TotalBanque > 21 :
+        print ("Vous avez gagné, la banque a dépassé 21.")
+    elif TotalBanque > TotalJoueur :
+        print ("Vous avez perdu, la banque a plus que vous.")
+    elif TotalBanque == TotalJoueur :
+        print ("Match nul.")
+    else :
+        print ("Vous avez gagné.")
+        
+        
